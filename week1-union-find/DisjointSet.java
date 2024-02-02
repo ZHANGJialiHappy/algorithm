@@ -53,7 +53,7 @@ public class DisjointSet {
             parent[rootT] = rootS;
             size[rootS] += size[rootT];
         }
-        // StdOut.println(Arrays.toString(parent));
+        StdOut.println(Arrays.toString(parent));
     }
 
     public void move(int s, int t) {
@@ -62,8 +62,50 @@ public class DisjointSet {
         if (rootS == rootT) {
             return;
         }
-        parent[s] = rootT;
-        // StdOut.println(Arrays.toString(parent));
+        if (!isParent(s)) {
+            parent[s] = rootT;
+        }
+        if (s != parent[s]) {
+            for (int i = 0; i < parent.length; i++) {
+                if (parent[i] == s) {
+                    parent[i] = parent[parent[i]];
+                    parent[s] = rootT;
+                }
+            }
+        } else {
+            if (findFirstChild(s) == s) {
+                parent[s] = rootT;
+            }
+            int firstChild = findFirstChild(s);
+            for (int i = 0; i < parent.length; i++) {
+                if (parent[i] == s) {
+                    parent[i] = firstChild;
+                }
+                parent[s] = rootT;
+            }
+        }
+
+        size[rootS] -= 1;
+        size[rootT] += 1;
+        StdOut.println(Arrays.toString(parent));
+    }
+
+    private int findFirstChild(int root) {
+        for (int i = 0; i < parent.length; i++) {
+            if (parent[i] == root && i != root) {
+                return i;
+            }
+        }
+        return root;
+    }
+
+    private boolean isParent(int s) {
+        for (int i = 0; i < parent.length; i++) {
+            if (parent[i] == s) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -85,6 +127,10 @@ public class DisjointSet {
                 uf.move(s, t);
             }
         }
+
+        // DisjointSet m = new DisjointSet(3);
+        // int[] a = { 0, 0, 2, 2, 3, 2 };
+        // System.out.println(m.findFirstChild(3, a));
     }
 
 }
