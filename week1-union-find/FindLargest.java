@@ -1,5 +1,3 @@
-package week1;
-
 public class FindLargest {
 
     public int findLargest(int base, int N) {
