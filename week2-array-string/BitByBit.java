@@ -35,6 +35,7 @@ public class BitByBit {
             int numberOfOperation = sc.nextInt();
 
             if (numberOfOperation == 0) {
+                sc.close();
                 return;
             }
 
