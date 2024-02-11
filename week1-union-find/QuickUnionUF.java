@@ -1,11 +1,7 @@
-import java.util.Arrays;
-
 import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
 
 public class QuickUnionUF {
     private int[] parent;
-    private int count;
 
     public QuickUnionUF(int n) {
         parent = new int[n];
@@ -16,18 +12,14 @@ public class QuickUnionUF {
     public int find(int p) {
         while (p != parent[p]) {
             p = parent[p];
-            count++;
         }
         return p;
     }
 
     public void union(int p, int q) {
-        count = 0;
         int rootP = find(p);
         int rootQ = find(q);
         parent[rootP] = rootQ;
-        count++;
-        StdOut.println(Arrays.toString(parent) + " " + count);
     }
 
     public static void main(String[] args) {

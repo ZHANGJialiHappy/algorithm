@@ -4,6 +4,7 @@ import edu.princeton.cs.algs4.Alphabet;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Try {
+
     public static void main(String[] args) {
         // Alphabet c = new Alphabet("123456789asdfghj");
         // char c1 = c.toChar(0);
@@ -28,28 +29,28 @@ public class Try {
         // Arrays.toString(c4));
         // StdOut.println("return String " + c7);
 
-        int[] a = { 1, 2, 3 };
-        int[] b = { 1, 2, 3 };
-        int[] c = b;
-        // a[1] = 0;
-        System.out.println(a == b);
-        System.out.println(b == c);
-        System.out.println(a == c);
-        System.out.println(Arrays.equals(a, b));
-        System.out.println(Arrays.equals(b, c));
-        System.out.println(Arrays.equals(a, c));
+        // int[] a = { 1, 2, 3 };
+        // int[] b = { 1, 2, 3 };
+        // int[] c = b;
+        // // a[1] = 0;
+        // System.out.println(a == b);
+        // System.out.println(b == c);
+        // System.out.println(a == c);
+        // System.out.println(Arrays.equals(a, b));
+        // System.out.println(Arrays.equals(b, c));
+        // System.out.println(Arrays.equals(a, c));
 
-        System.out.println("..........");
-        String a1 = "asd";
-        String a2 = "asd";
-        String a3 = a2;
-        a1 = "dfg";
-        System.out.println(a1 == a2);
-        System.out.println(a2 == a3);
-        System.out.println(a1 == a3);
-        System.out.println(a1.equals(a2));
-        System.out.println(a2.equals(a3));
-        System.out.println(a1.equals(a3));
+        // System.out.println("..........");
+        // String a1 = "asd";
+        // String a2 = "asd";
+        // String a3 = a2;
+        // a1 = "dfg";
+        // System.out.println(a1 == a2);
+        // System.out.println(a2 == a3);
+        // System.out.println(a1 == a3);
+        // System.out.println(a1.equals(a2));
+        // System.out.println(a2.equals(a3));
+        // System.out.println(a1.equals(a3));
 
     }
 }
