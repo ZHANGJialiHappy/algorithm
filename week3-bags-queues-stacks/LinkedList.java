@@ -1,13 +1,10 @@
 
 import java.util.Iterator;
-import java.util.StringJoiner;
-
-import edu.princeton.cs.algs4.StdOut;
 
 /**
  * Created by Rene Argento
  */
-public class LikedList<Item> implements Iterable<Item> {
+public class LinkedList<Item> implements Iterable<Item> {
 
     private class Node {
         Item item;
@@ -102,18 +99,38 @@ public class LikedList<Item> implements Iterable<Item> {
         size++;
     }
 
+    // public int max() {
+    // if (isEmpty()) {
+    // return 0;
+    // }
+    // int max = (int) first.item;
+    // Node current;
+    // for (current = first.next; current != null; current = current.next) {
+    // if ((int) current.item > max) {
+    // max = (int) current.item;
+    // }
+    // }
+    // return max;
+    // }
+
     public int max() {
         if (isEmpty()) {
             return 0;
         }
-        int max = (int) first.item;
-        Node current;
-        for (current = first.next; current != null; current = current.next) {
-            if ((int) current.item > max) {
-                max = (int) current.item;
-            }
+
+        int currentMaxValue = (int) first.item;
+        return getMax(first.next, currentMaxValue);
+    }
+
+    private int getMax(Node node, int currentMaxValue) {
+        if (node == null) {
+            return currentMaxValue;
         }
-        return max;
+        int currentValue = (int) node.item;
+        if (currentValue > currentMaxValue) {
+            currentMaxValue = currentValue;
+        }
+        return getMax(node.next, currentMaxValue);
     }
 
     @Override
@@ -139,6 +156,5 @@ public class LikedList<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        LikedList<Integer> linkedList = new LikedList<>();
     }
 }
