@@ -77,6 +77,20 @@ public class LikedList<Item> implements Iterable<Item> {
         size--;
     }
 
+    public int max() {
+        if (isEmpty()) {
+            return 0;
+        }
+        int max = (int) first.item;
+        Node current;
+        for (current = first.next; current != null; current = current.next) {
+            if ((int) current.item > max) {
+                max = (int) current.item;
+            }
+        }
+        return max;
+    }
+
     @Override
     public Iterator<Item> iterator() {
         return new ListIterator();
