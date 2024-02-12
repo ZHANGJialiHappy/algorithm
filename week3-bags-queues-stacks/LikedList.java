@@ -77,6 +77,31 @@ public class LikedList<Item> implements Iterable<Item> {
         size--;
     }
 
+    // ?????????
+    public void removeAfter(Node n) {
+        if (isEmpty() || n.next == null) {
+            return;
+        }
+        Node current = first;
+        for (int i = 0; i < size; i++) {
+            if (current == n) {
+                n.next = null;
+                size = i + 1;
+                break;
+            }
+            current = current.next;
+        }
+    }
+
+    public void insertAfter(Node x, Node t) {
+        if (x.next == null || t.next == null) {
+            return;
+        }
+        t.next = x.next;
+        x.next = t;
+        size++;
+    }
+
     public int max() {
         if (isEmpty()) {
             return 0;
@@ -115,31 +140,5 @@ public class LikedList<Item> implements Iterable<Item> {
 
     public static void main(String[] args) {
         LikedList<Integer> linkedList = new LikedList<>();
-        linkedList.add(0);
-        linkedList.add(1);
-        linkedList.add(2);
-        linkedList.add(3);
-
-        StdOut.println("Before removing last node");
-
-        StringJoiner listBeforeRemove = new StringJoiner(" ");
-        for (int number : linkedList) {
-            listBeforeRemove.add(String.valueOf(number));
-        }
-
-        StdOut.println(listBeforeRemove.toString());
-        StdOut.println("Expected: 0 1 2 3");
-
-        linkedList.deleteLastNode();
-
-        StdOut.println("\nAfter removing last node");
-
-        StringJoiner listAfterRemove = new StringJoiner(" ");
-        for (int number : linkedList) {
-            listAfterRemove.add(String.valueOf(number));
-        }
-
-        StdOut.println(listAfterRemove.toString());
-        StdOut.println("Expected: 0 1 2");
     }
 }
