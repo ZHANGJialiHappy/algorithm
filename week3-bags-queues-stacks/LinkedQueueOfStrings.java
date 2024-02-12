@@ -30,5 +30,9 @@ public class LinkedQueueOfStrings {
     }
 
     public static void main(String[] args) {
+        LinkedQueueOfStrings a = new LinkedQueueOfStrings();
+        a.enqueue("1");
+        a.enqueue("2");
+        a.enqueue("3");
     }
 }

@@ -38,21 +38,14 @@ public class ResizingArrayStackOfStrings {
 
     public static void main(String[] args) {
         ResizingArrayStackOfStrings a = new ResizingArrayStackOfStrings();
-        // while (!StdIn.isEmpty()) {
-        // String s = StdIn.readString();
-        // if (s.equals("-")) {
-        // System.out.println(a.pop());
-        // } else {
-        // a.push(s);
-        // }
-        // }
-        a.push("a");
-        a.push("b");
-        a.push("c");
-        a.push("d");
-        a.pop();
-        a.pop();
-        a.pop();
+        while (!StdIn.isEmpty()) {
+            String s = StdIn.readString();
+            if (s.equals("-")) {
+                System.out.println(a.pop());
+            } else {
+                a.push(s);
+            }
+        }
 
     }
 
