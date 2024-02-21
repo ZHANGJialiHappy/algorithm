@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class ReserveArray {
+public class ReverseArray {
     public static int[] reserve(int[] a) {
         int temp = 0;
         for (int i = 0; i < a.length / 2; i++) {

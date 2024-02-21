@@ -1,4 +1,5 @@
 public class BinarySearch {
+    // lgN
     public static int binarySearch(int[] a, int key) {
         int lo = 0, hi = a.length - 1;
         while (lo <= hi) {
@@ -12,6 +13,11 @@ public class BinarySearch {
             }
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] a = new int[] { 1, 2, 2, 3, 3, 4, 5, 6 };
+        System.out.println(binarySearch(a, 2));
     }
 
 }

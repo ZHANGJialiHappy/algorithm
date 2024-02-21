@@ -113,24 +113,12 @@ public class LinkedList<Item> implements Iterable<Item> {
     // return max;
     // }
 
-    public int max() {
-        if (isEmpty()) {
+    public int max(Node node) {
+        if (node == null) {
             return 0;
         }
 
-        int currentMaxValue = (int) first.item;
-        return getMax(first.next, currentMaxValue);
-    }
-
-    private int getMax(Node node, int currentMaxValue) {
-        if (node == null) {
-            return currentMaxValue;
-        }
-        int currentValue = (int) node.item;
-        if (currentValue > currentMaxValue) {
-            currentMaxValue = currentValue;
-        }
-        return getMax(node.next, currentMaxValue);
+        return Math.max((int) node.item, max(node.next));
     }
 
     @Override
