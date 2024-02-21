@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class FindFloor {
 
     public static int findFloorInCLogF(int[] floors) {
@@ -13,6 +11,9 @@ public class FindFloor {
             }
         }
         int searchFloorWithoutEgg = searchFloor / 2;
+        if (searchFloor >= floors.length) {
+            searchFloor = floors.length - 1;
+        }
 
         return findFloorInLogN(floors, searchFloorWithoutEgg, searchFloor);
     }
@@ -22,15 +23,20 @@ public class FindFloor {
             int mid = lo + (hi - lo) / 2;
             if (a[mid] < 1) {
                 lo = mid + 1;
-            } else {
+            } else if (a[mid] > 1) {
                 hi = mid - 1;
+            } else {
+                if (lo == hi) {
+                    return lo;
+                }
+                hi = mid;
             }
         }
-        return lo;
+        return -1;
     }
 
     public static void main(String[] args) {
-        int[] b = new int[] { 0, 1, 1, 1, 1, 1, 1 };
+        int[] b = new int[] { 0, 0, 0 };
         System.out.println(findFloorInCLogF(b));
     }
 }

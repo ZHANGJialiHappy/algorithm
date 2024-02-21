@@ -9,14 +9,18 @@ public class BinarySearch {
             } else if (key > a[mid]) {
                 lo = mid + 1;
             } else {
-                return mid;
+                if (lo == hi) {
+                    return hi;
+                }
+                hi = mid;
+
             }
         }
         return -1;
     }
 
     public static void main(String[] args) {
-        int[] a = new int[] { 1, 2, 2, 3, 3, 4, 5, 6 };
+        int[] a = new int[] { 1, 2, 2, 2, 2, 4, 5, 6 };
         System.out.println(binarySearch(a, 2));
     }
 
