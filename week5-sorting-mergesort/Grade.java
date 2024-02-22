@@ -20,6 +20,8 @@ public class Grade {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int studentNum = sc.nextInt();
+
+        // use treeMap to sort key(students' name)
         TreeMap<String, Integer> nameWithGrade = new TreeMap<>();
 
         // convert grade into int;
