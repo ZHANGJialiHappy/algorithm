@@ -2,8 +2,7 @@ import java.util.Arrays;
 
 public class Sort {
     // find the smallest one after i, then exchange
-    // Selection sort makes (n – 1) + (n – 2) + ... + 1 + 0 ~ n2 / 2 compares
-    // and n exchanges to sort any array of n items.
+    // Selection sort: ~ n2 / 2 compares, n exchanges.
     public static int[] selectionSort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             int min = i;

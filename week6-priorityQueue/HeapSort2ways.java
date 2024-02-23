@@ -1,11 +1,22 @@
 import java.util.Arrays;
 
-public class HeapTopDown {
+// HeapTopDown: <= 3nlogn compares (and <=2nlogn exchange)
+// Heap BottomUp: <=2nlogn +2n compares (and <= nlogn + n exchange)
+public class HeapSort2ways {
     public static void sort(Comparable[] a) {
-        // let all element swim up one by one, so we get first max
         int n = a.length;
+
+        // Top-down heap construction: <= logn compares(and exchanges)
+        // let all element swim up one by one, so we get first max
         for (int k = 1; k < n; k++)
             swim(a, k);
+
+        // bottom-up heap construction: <= 2n compares(and n exchanges)
+        // let all parents sink.
+        for (int k = (n - 1) / 2; k >= 1; k--)
+            sink(a, k, n - 1);
+
+        // sortdown <= 2nlogn compares(and <= nlogn exchanges)
         int k = n - 1;
         while (k > 1) {
             // change max and last unsorted element,
@@ -47,7 +58,7 @@ public class HeapTopDown {
 
     public static void main(String[] args) {
         // ! first element will not be sorted
-        Integer[] m = { 100, 5, 4, 3, 2 };
+        Integer[] m = { 100, 3, 4, 3, 2 };
         sort(m);
         System.out.println(Arrays.toString(m));
     }
