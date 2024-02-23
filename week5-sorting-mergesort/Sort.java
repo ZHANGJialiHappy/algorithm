@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Sort {
-
+    // find the smallest one after i, then exchange
     // Selection sort makes (n – 1) + (n – 2) + ... + 1 + 0 ~ n2 / 2 compares
     // and n exchanges to sort any array of n items.
     public static int[] selectionSort(int[] a) {
@@ -18,7 +18,7 @@ public class Sort {
 
     }
 
-    // Worst case. Insertion sort makes ~ ½ n2 compares and ~ ½ n2 exchanges
+    // 前后比，Worst case. Insertion sort makes ~ ½ n2 compares and ~ ½ n2 exchanges
     public static int[] insertionSort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             for (int j = i; j > 0; j--) {
