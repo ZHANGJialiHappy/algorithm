@@ -7,7 +7,7 @@ public class Sort {
         for (int i = 0; i < a.length; i++) {
             int min = i;
             for (int j = i + 1; j < a.length; j++) {
-                if (less(a[j], a[min])) {
+                if (less(a, j, min)) {
                     min = j;
                 }
             }
@@ -21,7 +21,7 @@ public class Sort {
     public static int[] insertionSort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             for (int j = i; j > 0; j--) {
-                if (less(a[j], a[j - 1])) {
+                if (less(a, j, j - 1)) {
                     exch(a, j, j - 1);
                 } else {
                     break;
@@ -33,9 +33,10 @@ public class Sort {
     }
 
     // nlogn
-    public static void mergeSort(int[] a) {
+    public static int[] mergeSort(int[] a) {
         int[] aux = new int[a.length];
         mergeSort(a, aux, 0, a.length - 1);
+        return a;
     }
 
     private static void mergeSort(int[] a, int[] aux, int lo, int hi) {
@@ -56,15 +57,26 @@ public class Sort {
                 a[k] = aux[j++];
             else if (j > hi)
                 a[k] = aux[i++];
-            else if (less(aux[j], aux[i]))
+            else if (less(aux, j, i))
                 a[k] = aux[j++];
             else
                 a[k] = aux[i++];
         }
     }
 
-    private static boolean less(int v, int w) {
-        return ((Integer) v).compareTo((Integer) w) < 0;
+    public static int[] bubbleSort(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length - i - 1; j++) {
+                if (!less(a, j, j + 1)) {
+                    exch(a, j, j + 1);
+                }
+            }
+        }
+        return a;
+    }
+
+    private static boolean less(int[] a, int i, int j) {
+        return a[i] - a[j] < 0;
     }
 
     private static void exch(int[] a, int i, int j) {
@@ -76,7 +88,7 @@ public class Sort {
     public static void main(String[] args) {
         int[] a = new int[] { 4, 2, 6, 2, 5 };
         // System.out.println(Arrays.toString(selectionSort(a)));
-        System.out.println(Arrays.toString(insertionSort(a)));
+        System.out.println(Arrays.toString(mergeSort(a)));
 
     }
 }
