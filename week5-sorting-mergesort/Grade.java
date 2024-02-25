@@ -74,8 +74,8 @@ public class Grade {
                 return grade2 - grade1;
             }
         });
-        for (Map.Entry<String, Integer> eachStudent : nameWithGrade.entrySet()) {
-            pq.offer(eachStudent.getKey());
+        for (String name : nameWithGrade.keySet()) {
+            pq.offer(name);
         }
 
         while (!pq.isEmpty()) {
