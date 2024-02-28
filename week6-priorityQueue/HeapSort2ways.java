@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 // HeapTopDown: <= 3nlogn compares (and <=2nlogn exchange)
 // Heap BottomUp: <=2nlogn +2n compares (and <= nlogn + n exchange)
+// Heapsort uses only Θ(1) extra space, no extra space added
 public class HeapSort2ways {
     public static void sort(Comparable[] a) {
         int n = a.length;

@@ -32,8 +32,8 @@ public class Sort {
 
     }
 
-    // nlogn
-    public static int[] mergeSort(int[] a) {
+    // 1/2nlogn to nlogn
+    public static int[] topDownMergeSort(int[] a) {
         int[] aux = new int[a.length];
         mergeSort(a, aux, 0, a.length - 1);
         return a;
@@ -64,6 +64,17 @@ public class Sort {
         }
     }
 
+    public static int[] bottomUpMergeSort(int[] a) {
+        int N = a.length;
+        int[] aux = new int[N];
+        for (int sz = 1; sz < N; sz = 2 * sz) {
+            for (int lo = 0; lo < N - sz; lo += 2 * sz) {
+                merge(a, aux, lo, lo + sz - 1, Math.min(lo + 2 * sz - 1, N - 1));
+            }
+        }
+        return a;
+    }
+
     public static int[] bubbleSort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length - i - 1; j++) {
@@ -88,7 +99,7 @@ public class Sort {
     public static void main(String[] args) {
         int[] a = new int[] { 4, 2, 6, 2, 5 };
         // System.out.println(Arrays.toString(selectionSort(a)));
-        System.out.println(Arrays.toString(mergeSort(a)));
+        System.out.println(Arrays.toString(bottomUpMergeSort(a)));
 
     }
 }
