@@ -13,14 +13,13 @@ public class BinarySearch {
                     return hi;
                 }
                 hi = mid;
-
             }
         }
         return -1;
     }
 
     public static void main(String[] args) {
-        int[] a = new int[] { 1, 2, 2, 2, 2, 4, 5, 6 };
+        int[] a = new int[] { 1, 1, 2, 2, 2, 2, 2, 2 };
         System.out.println(binarySearch(a, 2));
     }
 
