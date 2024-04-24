@@ -7,7 +7,7 @@ public class HeapSort2ways {
     public static void sort(Comparable[] a) {
         int n = a.length;
 
-        // Top-down heap construction: <= logn compares(and exchanges)
+        // Top-down heap construction: <= logn compares(and nlogn exchanges)
         // let all element swim up one by one, so we get first max
         for (int k = 1; k < n; k++)
             swim(a, k);
@@ -59,7 +59,7 @@ public class HeapSort2ways {
 
     public static void main(String[] args) {
         // ! first element will not be sorted
-        Integer[] m = { 100, 3, 4, 3, 2 };
+        Integer[] m = { -1, 3, 4, 3, 2 };
         sort(m);
         System.out.println(Arrays.toString(m));
     }
